@@ -1,0 +1,16 @@
+{
+    "id": "example-id",
+    "title": "Recipe-Title",
+    "cover-img": "src/assets/placeholder.png",
+    "tags": "example",
+    "ingredients": {
+        "1": "ingredient 1",
+        "2": "ingredient 2",
+        "3": "ingredient 3"
+    },
+    "instructions": {
+        "1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "2": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+        "3": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+}
