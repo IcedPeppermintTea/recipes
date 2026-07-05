@@ -1,5 +1,6 @@
 import React from "react";
 import Tag from "./components/Tag"
+import TableofContent from "./components/TableofContent";
 
 /* define the required objects */
 export type Tag = {
@@ -36,7 +37,7 @@ export type Recipe = {
   id: string,
   title: string,
   coverImage: string,
-  tags: Tag[],
+  tags: string[], // the tag id referencing tagRegistry
   ingredients: string[],
   instructions: string[]
 }
@@ -51,6 +52,7 @@ function App() {
   return (
     // example 
     <div>
+      <TableofContent tocData={[{id: "example_id", title: "Recipe-Title"}]}/>
     <Tag tagData={tagRegistry.find(t => t.id === "quick")!}/>
     <Tag tagData={tagRegistry.find(t => t.id === "spicy")!}/>
     </div>
