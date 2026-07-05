@@ -1,3 +1,60 @@
 import React from "react";
+import Tag from "./components/Tag"
 
-// define the objects
+/* define the required objects */
+export type Tag = {
+  id: string,
+  name: string,
+  bgClass: string,
+  textClass: string,
+  borderClass: string,
+  dotClass:string
+}
+
+export const tagRegistry: Tag[] = [
+  // meal types — cyan/teal family
+  { id: "breakfast",     name: "Breakfast",     bgClass: "bg-cyan-50",    textClass: "text-cyan-700",    borderClass: "border-cyan-200",    dotClass: "bg-cyan-400" },
+  { id: "lunch",         name: "Lunch",         bgClass: "bg-cyan-50",    textClass: "text-cyan-700",    borderClass: "border-cyan-200",    dotClass: "bg-cyan-400" },
+  { id: "dinner",        name: "Dinner",        bgClass: "bg-sky-50",     textClass: "text-sky-700",     borderClass: "border-sky-200",     dotClass: "bg-sky-400" },
+  { id: "snack",         name: "Snack",         bgClass: "bg-teal-50",    textClass: "text-teal-700",    borderClass: "border-teal-200",    dotClass: "bg-teal-400" },
+  { id: "dessert",       name: "Dessert",       bgClass: "bg-pink-50",    textClass: "text-pink-700",    borderClass: "border-pink-200",    dotClass: "bg-pink-400" },
+  { id: "drink",         name: "Drink",         bgClass: "bg-blue-50",    textClass: "text-blue-700",    borderClass: "border-blue-200",    dotClass: "bg-blue-400" },
+
+  // attributes — green family
+  { id: "healthy",       name: "Healthy",       bgClass: "bg-emerald-50", textClass: "text-emerald-700", borderClass: "border-emerald-200", dotClass: "bg-emerald-400" },
+  { id: "high-protein",  name: "High-Protein",  bgClass: "bg-green-50",   textClass: "text-green-700",   borderClass: "border-green-200",   dotClass: "bg-green-400" },
+  { id: "quick",         name: "Quick",         bgClass: "bg-lime-50",    textClass: "text-lime-700",    borderClass: "border-lime-200",    dotClass: "bg-lime-400" },
+  { id: "spicy",         name: "Spicy",         bgClass: "bg-orange-50",  textClass: "text-orange-700",  borderClass: "border-orange-200",  dotClass: "bg-orange-400" },
+
+  // effort/practicality — teal/emerald family
+  { id: "easy",          name: "Easy",          bgClass: "bg-teal-50",    textClass: "text-teal-700",    borderClass: "border-teal-200",    dotClass: "bg-teal-400" },
+  { id: "one-pot",       name: "One-Pot",       bgClass: "bg-emerald-50", textClass: "text-emerald-700", borderClass: "border-emerald-200", dotClass: "bg-emerald-400" },
+  { id: "meal-prep",     name: "Meal-Prep",     bgClass: "bg-green-50",   textClass: "text-green-700",   borderClass: "border-green-200",   dotClass: "bg-green-400" },
+]
+
+export type Recipe = {
+  id: string,
+  title: string,
+  coverImage: string,
+  tags: Tag[],
+  ingredients: string[],
+  instructions: string[]
+}
+
+export type SummaryRecipe = Pick<Recipe, "id"| "title">
+
+// will map to the Manifest json
+export type TableofContent = SummaryRecipe[]
+
+
+function App() {
+  return (
+    // example 
+    <div>
+    <Tag tagData={tagRegistry.find(t => t.id === "quick")!}/>
+    <Tag tagData={tagRegistry.find(t => t.id === "spicy")!}/>
+    </div>
+  )
+}
+
+export default App
