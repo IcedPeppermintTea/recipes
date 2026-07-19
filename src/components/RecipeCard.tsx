@@ -47,8 +47,8 @@ function RecipeCard({recipeData}: RecipeProp) {
                     Ingredients
                 </h2>
                 <div className="space-y-1.5">
-                    {recipeData.ingredients.map(ingredient => (
-                        <p className="text-slate-600 leading-relaxed pl-3.5">
+                    {recipeData.ingredients.map((ingredient, index) => (
+                        <p key={index} className="text-slate-600 leading-relaxed pl-3.5">
                             {ingredient}
                         </p>
                     ))}
@@ -62,8 +62,8 @@ function RecipeCard({recipeData}: RecipeProp) {
                     Instructions
                 </h2>
                 <div className="space-y-3">
-                    {recipeData.instructions.map(instruction => (
-                        <p className="text-slate-600 leading-relaxed pl-3.5">
+                    {recipeData.instructions.map((instruction, index) => (
+                        <p key={index} className="text-slate-600 leading-relaxed pl-3.5">
                             {instruction}
                         </p>
                     ))}

@@ -56,6 +56,19 @@ function App() {
   // state to control current selected recipe
   const [curRecipe, setCurRecipe] = useState<Recipe | null>(null)
 
+    // load the Table of Content data
+    useEffect(() => {
+    async function loadManifest() {
+        const response = await fetch("src/recipe-data/manifest.json")
+        const data: TableofContent = await response.json()
+        setToc(data)
+        if (data.length > 0) {
+          selectRecipe(data[0].id) // load first recipe on first page load
+        }
+    }
+    loadManifest()
+  }, [])
+
   // on toc recipe click - load recipe card
   function selectRecipe(id: string) {
     // use recipe id to request correct json file
@@ -68,16 +81,6 @@ function App() {
 
     loadRecipe(id)
   }
-
-  // Effect to control Manifest load
-    useEffect(() => {
-    async function loadManifest() {
-        const response = await fetch("src/recipe-data/manifest.json")
-        const data: TableofContent = await response.json()
-        setToc(data)
-    }
-    loadManifest()
-  }, [])
 
   return (
     <div>
