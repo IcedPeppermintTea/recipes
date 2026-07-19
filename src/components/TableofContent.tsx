@@ -2,9 +2,10 @@ import { type TableofContent as ToC } from "../App";
 
 type tableProps = {
     tocData: ToC
+    selectRecipe: (id: string) => void
 }
 
-function TableofContent({tocData}: tableProps) {
+function TableofContent({tocData, selectRecipe}: tableProps) {
     return (
         <nav className="w-full max-w-xs">
             <h2 className="text-sm font-semibold tracking-wide text-gray-400 uppercase mb-3">
@@ -13,7 +14,7 @@ function TableofContent({tocData}: tableProps) {
             <ul className="space-y-1">
                 {tocData.map(recipe => (
                     <li key={recipe.id}>
-                        <button
+                        <button onClick={() => selectRecipe(recipe.id)}
                             type="button"
                             className="w-full text-left text-cyan-700 hover:text-cyan-900 hover:underline underline-offset-2 decoration-cyan-300 py-1 transition-colors"
                         >

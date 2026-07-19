@@ -1,6 +1,6 @@
 {
-    "id": "example-id",
-    "title": "Recipe-Title",
+    "id": "template",
+    "title": "Template",
     "coverImg": "/images/placeholder.png",
     "tags": ["example1", "example2"],
     "ingredients": ["ingredient 1", "ingredient 2", "ingredient 3"],

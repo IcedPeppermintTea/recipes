@@ -1,6 +1,8 @@
 import React from "react";
 import Tag from "./components/Tag"
 import TableofContent from "./components/TableofContent";
+import { useState, useEffect } from 'react';
+import RecipeCard from "./components/RecipeCard";
 
 /* define the required objects */
 export type Tag = {
@@ -47,14 +49,40 @@ export type SummaryRecipe = Pick<Recipe, "id"| "title">
 // will map to the Manifest json
 export type TableofContent = SummaryRecipe[]
 
-
 function App() {
+  // state to control and render Table of Content
+  const [toc, setToc] = useState<TableofContent | null>(null)
+
+  // state to control current selected recipe
+  const [curRecipe, setCurRecipe] = useState<Recipe | null>(null)
+
+  // on toc recipe click - load recipe card
+  function selectRecipe(id: string) {
+    // use recipe id to request correct json file
+    async function loadRecipe(id: string) {
+      const response = await fetch(`src/recipe-data/${id}.json`)
+      const data: Recipe = await response.json()
+      // set current recipe to the new json recipe
+      setCurRecipe(data)
+    }
+
+    loadRecipe(id)
+  }
+
+  // Effect to control Manifest load
+    useEffect(() => {
+    async function loadManifest() {
+        const response = await fetch("src/recipe-data/manifest.json")
+        const data: TableofContent = await response.json()
+        setToc(data)
+    }
+    loadManifest()
+  }, [])
+
   return (
-    // example 
     <div>
-      <TableofContent tocData={[{id: "example_id", title: "Recipe-Title"}]}/>
-    <Tag tagData={tagRegistry.find(t => t.id === "quick")!}/>
-    <Tag tagData={tagRegistry.find(t => t.id === "spicy")!}/>
+      {toc !== null ? <TableofContent tocData={toc} selectRecipe={selectRecipe}/> : null}
+      {curRecipe !== null ? <RecipeCard recipeData={curRecipe} /> : null}
     </div>
   )
 }
