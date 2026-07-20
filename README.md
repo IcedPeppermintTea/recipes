@@ -72,3 +72,4 @@ Note: recipes are already present for testing and for fun - likely to be replace
 - Adding/editing recipes currently requires editing files directly — a UI-driven "add recipe" flow would need a backend to write files, since the browser can't write to disk on its own.
 - Tag styling uses literal Tailwind class names per tag (required for Tailwind's build-time class scanning to pick them up) rather than dynamically constructed classes.
 - No grouping / filtering / searching functionality implemented yet - need to scroll through each recipe manually
+- Make Table of Content Collapsible in smaller screens

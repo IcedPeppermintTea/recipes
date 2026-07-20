@@ -103,7 +103,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="flex flex-row items-start gap-6 p-6">
       {toc !== null ? <TableofContent tocData={toc} selectRecipe={selectRecipe}/> : null}
       {curRecipe !== null ? <RecipeCard recipeData={curRecipe} /> : null}
     </div>
