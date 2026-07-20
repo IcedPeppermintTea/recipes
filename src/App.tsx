@@ -59,12 +59,23 @@ function App() {
     // load the Table of Content data
     useEffect(() => {
     async function loadManifest() {
-        const response = await fetch("src/recipe-data/manifest.json")
+      try {
+        const response = await fetch("/recipe-data/manifest.json")
+        const contentType = response.headers.get("content-type")
+        if (!response.ok || !contentType?.includes("application/json")) {
+          throw new Error("Something went wrong trying to load manifest.json") 
+        }
         const data: TableofContent = await response.json()
         setToc(data)
+
         if (data.length > 0) {
           selectRecipe(data[0].id) // load first recipe on first page load
         }
+      }
+      catch (error) {
+        console.error(error)
+      }   
+        
     }
     loadManifest()
   }, [])
@@ -73,10 +84,19 @@ function App() {
   function selectRecipe(id: string) {
     // use recipe id to request correct json file
     async function loadRecipe(id: string) {
-      const response = await fetch(`src/recipe-data/${id}.json`)
-      const data: Recipe = await response.json()
-      // set current recipe to the new json recipe
-      setCurRecipe(data)
+      try {
+        const response = await fetch(`/recipe-data/${id}.json`)
+        const contentType = response.headers.get("content-type")
+        if (!response.ok || !contentType?.includes("application/json")) {
+          throw new Error (`Could not load ${id}.json`)
+        }
+        const data: Recipe = await response.json()
+        // set current recipe to the new json recipe
+        setCurRecipe(data)
+      }
+      catch (error) {
+        console.log(error)
+      }
     }
 
     loadRecipe(id)

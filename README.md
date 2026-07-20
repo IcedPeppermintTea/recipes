@@ -66,7 +66,8 @@ Note: recipes are already present for testing and for fun - likely to be replace
 
 ## Known gaps / next steps
 
-- No error handling yet if a fetch fails (malformed JSON, missing file, manifest/recipe id mismatch) — currently fails silently or throws an uncaught error in the console.
+- ~~No error handling yet if a fetch fails (malformed JSON, missing file, manifest/recipe id mismatch) — currently fails silently or throws an uncaught error in the console.~~
+  - Displays only on the console - consider rendering in the UI
 - Manifest is maintained by hand; a small script to regenerate it from the contents of `recipe-data/` would remove the need to edit it manually every time.
 - Adding/editing recipes currently requires editing files directly — a UI-driven "add recipe" flow would need a backend to write files, since the browser can't write to disk on its own.
 - Tag styling uses literal Tailwind class names per tag (required for Tailwind's build-time class scanning to pick them up) rather than dynamically constructed classes.
