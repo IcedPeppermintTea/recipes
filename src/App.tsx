@@ -1,4 +1,3 @@
-import React from "react";
 import Tag from "./components/Tag"
 import TableofContent from "./components/TableofContent";
 import { useState, useEffect } from 'react';
@@ -60,7 +59,7 @@ function App() {
     useEffect(() => {
     async function loadManifest() {
       try {
-        const response = await fetch("/recipe-data/manifest.json")
+        const response = await fetch(`${import.meta.env.BASE_URL}recipe-data/manifest.json`)
         const contentType = response.headers.get("content-type")
         if (!response.ok || !contentType?.includes("application/json")) {
           throw new Error("Something went wrong trying to load manifest.json") 
@@ -85,7 +84,7 @@ function App() {
     // use recipe id to request correct json file
     async function loadRecipe(id: string) {
       try {
-        const response = await fetch(`/recipe-data/${id}.json`)
+        const response = await fetch(`${import.meta.env.BASE_URL}recipe-data/${id}.json`)
         const contentType = response.headers.get("content-type")
         if (!response.ok || !contentType?.includes("application/json")) {
           throw new Error (`Could not load ${id}.json`)
