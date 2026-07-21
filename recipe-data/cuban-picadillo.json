@@ -1,0 +1,31 @@
+{
+    "id": "cuban-picadillo",
+    "title": "Healthy Cuban-Style Picadillo",
+    "coverImg": "/images/placeholder.png",
+    "tags": ["healthy", "high-protein", "one-pot", "meal-prep", "lunch"],
+    "ingredients": [
+        "1 lb lean ground turkey (or 93% lean ground beef)",
+        "1 tbsp olive oil",
+        "1 small yellow onion, diced",
+        "1 green bell pepper, diced",
+        "4 cloves garlic, minced",
+        "1 can (8 oz) tomato sauce",
+        "1/4 cup dry white wine or low-sodium broth",
+        "1/3 cup pimento-stuffed green olives, halved",
+        "2 tbsp raisins",
+        "1 tbsp capers",
+        "1 tsp ground cumin",
+        "1 tsp dried oregano",
+        "1 bay leaf",
+        "Salt and black pepper, to taste"
+    ],
+    "instructions": [
+        "Heat olive oil in a large skillet or Dutch oven over medium heat.",
+        "Add onion and bell pepper, cooking until softened, about 4-5 minutes.",
+        "Add garlic and cook for 30 seconds until fragrant.",
+        "Add ground turkey, breaking it up with a spoon, and cook until browned, about 6-8 minutes.",
+        "Stir in tomato sauce, wine or broth, olives, raisins, capers, cumin, oregano, and bay leaf.",
+        "Season with salt and pepper, then reduce heat to low and simmer uncovered for 15-20 minutes, stirring occasionally, until slightly thickened.",
+        "Remove bay leaf before serving."
+    ]
+}
